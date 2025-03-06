@@ -3,20 +3,20 @@ import React, { createContext, useState, useEffect } from "react";
 export const ThemeContext = createContext();
 
 const ThemeProvider = ({ children }) => {
-  // ✅ Force state update by triggering a re-render
+  // ✅ Load the theme from localStorage OR default to light mode
   const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem("theme") === "dark";
+    return localStorage.getItem("theme") === "dark"; // Loads from storage
   });
 
   useEffect(() => {
     if (darkMode) {
-      document.documentElement.classList.add("dark");
+      document.documentElement.classList.add("dark"); // ✅ Adds dark mode
       localStorage.setItem("theme", "dark");
     } else {
-      document.documentElement.classList.remove("dark");
+      document.documentElement.classList.remove("dark"); // ✅ Removes dark mode
       localStorage.setItem("theme", "light");
     }
-  }, [darkMode]); // ✅ Now correctly updates when state changes
+  }, [darkMode]);
 
   return (
     <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
@@ -26,6 +26,7 @@ const ThemeProvider = ({ children }) => {
 };
 
 export default ThemeProvider;
+
 
 
 

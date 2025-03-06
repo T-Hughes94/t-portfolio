@@ -2,14 +2,15 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}", // ✅ Ensures Tailwind scans all JSX files
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {},
   },
-  darkMode: "class", // ✅ Keep this for later, but ignore dark styles for now
+  darkMode: "class", // ✅ Uses "class" strategy
   plugins: [],
 };
+
 
 
 
