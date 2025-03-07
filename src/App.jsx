@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import Navbar from "./components/Navbar";
+import Sidenav from "./components/Sidenav";
 import AboutMe from "./components/About";
 import Experience from "./components/Experience";
 import TechnicalSkills from "./components/TechnicalSkills";
@@ -23,7 +23,7 @@ function App() {
   return (
     <ThemeProvider>
       <div className="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 min-h-screen transition-all duration-300">
-        <Navbar />
+        <Sidenav />
         <Hero />
         <DarkModeTest /> {/* ✅ Confirms Dark Mode is working */}
         <AboutMe />
