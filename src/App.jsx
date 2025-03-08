@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import Sidenav from "./components/Sidenav";
-import AboutMe from "./components/About";
+import About from "./components/About";
 import Experience from "./components/Experience";
 import TechnicalSkills from "./components/TechnicalSkills";
 import Education from "./components/Education";
@@ -18,7 +18,7 @@ function App() {
       <div className="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 min-h-screen transition-all duration-300">
         <Sidenav />
         <Hero />
-        <AboutMe />
+        <About />
         <TechnicalSkills />
         <Projects />
         <Experience />
