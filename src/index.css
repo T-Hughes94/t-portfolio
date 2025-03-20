@@ -1,1 +1,5 @@
-
+.glow-effect {
+    box-shadow: 0 0 15px currentColor, 0 0 30px currentColor;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
