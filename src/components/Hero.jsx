@@ -66,7 +66,7 @@ const Hero = () => {
         <div className="hidden md:flex justify-center">
           <div className="relative w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden shadow-lg border-4 border-white">
             <img
-              src={darkMode ? "/space.jpeg" : "/mountains.jpg"}
+              src={darkMode ? "/mountains.jpg" : "/space.jpeg"}
               alt="Profile"
               className="w-full h-full object-cover"
             />

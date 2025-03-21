@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ThemeContext } from "./ThemeContext"; // Import Theme Context
+import { ThemeContext } from "./ThemeContext";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
 import resume from "/src/assets/resume.pdf";
@@ -8,76 +8,79 @@ const About = () => {
   const { darkMode } = useContext(ThemeContext);
 
   return (
-    <div
+    <section
       id="about"
-      className={`max-w-[1040px] mx-auto md:pl-20 p-6 py-16 text-center rounded-lg shadow-lg transition-all duration-500 ${
-        darkMode ? "bg-gray-900 text-white" : "bg-green-100 text-gray-900"
+      className={`relative w-full py-24 px-4 sm:px-8 transition-all duration-500 ${
+        darkMode
+          ? "bg-[url('/stars.jpg')] bg-cover bg-fixed bg-center"
+          : "bg-[url('/leaves.jpg')] bg-cover bg-fixed bg-center"
       }`}
     >
-      <h1 className="text-4xl font-extrabold tracking-wide drop-shadow-lg">
-        About Me
-      </h1>
+      {/* Glass-style overlay container */}
+      <div
+        className={`max-w-4xl mx-auto rounded-xl px-8 py-12 backdrop-blur-lg bg-white/80 dark:bg-gray-900/80 shadow-2xl transition-all duration-500`}
+      >
+        <h2 className="text-4xl font-extrabold text-center mb-8 text-gray-900 dark:text-white">
+          About Me
+        </h2>
 
-      {/* Profile Picture */}
-      <img
-        src="https://avatars.githubusercontent.com/u/133562544?v=4"
-        alt="Profile Picture"
-        className="w-64 h-64 rounded-full mx-auto mt-6 hover:scale-110 ease-in duration-200 shadow-lg"
-      />
+        {/* Bio Section */}
+        <p className="text-lg leading-relaxed text-center text-gray-800 dark:text-gray-200 mb-4">
+          Hey, I’m{" "}
+          <span className="font-bold text-blue-600 dark:text-blue-400">
+            Terence Hughes
+          </span>
+          , a full-stack developer from NYC. I’m passionate about building elegant, accessible, and meaningful web experiences.
+        </p>
+        <p className="text-md text-center text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
+          I started as a chef, and now I code like I cook — with flavor and discipline. Whether it's crafting clean layouts or integrating APIs, I value thoughtful design and a solid user experience. I also love music, nature, and all things outer space.
+        </p>
 
-      {/* Bio */}
-      <p className="text-lg mt-6 max-w-[80%] mx-auto">
-        Hi, I'm <span className="font-bold text-blue-500 dark:text-neonBlue">Terence Hughes</span>, 
-        a passionate developer based in New York, blending technology with creativity to build modern web applications.
-      </p>
+        {/* Social Icons */}
+        <div className="flex justify-center gap-6 mt-8">
+          <a
+            href="mailto:terencehughes450@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 rounded-full bg-gray-200 dark:bg-gray-700 shadow-md hover:scale-110 transition duration-200"
+          >
+            <AiOutlineMail size={24} className="text-gray-800 dark:text-white" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/terence-hughes-27204128a/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 rounded-full bg-gray-200 dark:bg-gray-700 shadow-md hover:scale-110 transition duration-200"
+          >
+            <FaLinkedinIn size={24} className="text-gray-800 dark:text-white" />
+          </a>
+          <a
+            href="https://github.com/T-Hughes94"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 rounded-full bg-gray-200 dark:bg-gray-700 shadow-md hover:scale-110 transition duration-200"
+          >
+            <FaGithub size={24} className="text-gray-800 dark:text-white" />
+          </a>
+        </div>
 
-      <p className="text-md mt-4 max-w-[90%] mx-auto">
-        With a background in the culinary arts, I bring a unique perspective to software development—balancing precision and creativity.
-        When I'm not coding, I love hiking, exploring space science, and playing music.
-      </p>
-
-      {/* Social Media Links */}
-      <div className="flex justify-center gap-8 mt-6">
-        <a
-          href="mailto:terencehughes450@gmail.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="p-3 rounded-full shadow-lg hover:scale-110 ease-in duration-200 bg-gray-200 dark:bg-gray-800"
-        >
-          <AiOutlineMail size={30} className="text-gray-900 dark:text-white" />
-        </a>
-        <a
-          href="https://www.linkedin.com/in/terence-hughes-27204128a/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="p-3 rounded-full shadow-lg hover:scale-110 ease-in duration-200 bg-gray-200 dark:bg-gray-800"
-        >
-          <FaLinkedinIn size={30} className="text-gray-900 dark:text-white" />
-        </a>
-        <a
-          href="https://github.com/T-Hughes94"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="p-3 rounded-full shadow-lg hover:scale-110 ease-in duration-200 bg-gray-200 dark:bg-gray-800"
-        >
-          <FaGithub size={30} className="text-gray-900 dark:text-white" />
-        </a>
+        {/* Resume Button */}
+        <div className="mt-8 flex justify-center">
+          <a
+            href={resume}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-3 rounded-full font-semibold text-white dark:text-gray-900 
+              bg-blue-600 dark:bg-blue-300 hover:bg-blue-700 dark:hover:bg-blue-400 shadow-md transition-all duration-300"
+          >
+            View My Resume
+          </a>
+        </div>
       </div>
-
-      {/* Resume Button */}
-      <div className="mt-8">
-        <a
-          href={resume}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-md text-white dark:text-gray-900 
-          bg-green-600 dark:bg-blue-400 hover:bg-green-700 dark:hover:bg-blue-500"
-        >
-          My Resume
-        </a>
-      </div>
-    </div>
+    </section>
   );
 };
 
 export default About;
+
+
