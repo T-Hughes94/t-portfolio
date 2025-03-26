@@ -1,3 +1,4 @@
+// src/components/Hero.jsx
 import React, { useContext } from "react";
 import { ThemeContext } from "./ThemeContext";
 import { TypeAnimation } from "react-type-animation";
@@ -12,20 +13,18 @@ const Hero = () => {
       id="hero"
       className="relative w-full h-screen flex flex-col items-center justify-center text-white overflow-hidden"
     >
-      {/* Semi-transparent Background Image Overlay */}
+      {/* Background Image */}
       <div
         className={`absolute inset-0 w-full h-full bg-cover bg-center opacity-40 transition-all duration-500 z-0 ${
-          darkMode
-            ? "bg-[url('/space.jpeg')]"
-            : "bg-[url('/mountains.jpg')]"
+          darkMode ? "bg-[url('/space.jpeg')]" : "bg-[url('/mountains.jpg')]"
         }`}
       />
 
-      {/* Optional additional overlay for contrast */}
+      {/* Overlay */}
       <div className="absolute inset-0 bg-black/20 dark:bg-black/40 z-0" />
 
-      {/* Content Area */}
-      <div className="relative w-full max-w-6xl px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-8 z-10">
+      {/* Main Content */}
+      <div className="relative w-full max-w-6xl px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-center z-10">
         {/* Text Content */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-6">
           <h1 className="text-5xl sm:text-6xl font-extrabold tracking-wide drop-shadow-lg">
@@ -34,16 +33,7 @@ const Hero = () => {
 
           <h2 className="text-2xl sm:text-3xl font-semibold">
             <TypeAnimation
-              sequence={[
-                "Developer 💻",
-                1500,
-                "Foodie 🌮",
-                1500,
-                "Nature Lover 🌿",
-                1500,
-                "Flatiron Graduate 🎓",
-                1500,
-              ]}
+              sequence={["Developer 💻", 1500, "Foodie 🌮", 1500, "Nature Lover 🌿", 1500, "Flatiron Graduate 🎓", 1500]}
               wrapper="span"
               cursor={true}
               className="inline-block"
@@ -65,13 +55,13 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Optional Image Section */}
+        {/* Sun/Moon Orb */}
         <div className="hidden md:flex justify-center">
-          <div className="relative w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden shadow-lg border-4 border-white">
+          <div className="relative w-full h-full md:w-90 md:h-84 rounded-full overflow-hidden perspective-[1000px] transform-style-preserve-3d">
             <img
-              src={darkMode ? "/mountains.jpg" : "/space.jpeg"}
-              alt="Profile"
-              className="w-full h-full object-cover"
+              src={darkMode ? "/moon_processed.jpg" : "/sun_processed.jpg"}
+              alt={darkMode ? "Moon" : "Sun"}
+              className="w-full h-full object-cover rounded-full animate-float3d shadow-[0_20px_60px_rgba(255,255,255,0.15)]"
             />
           </div>
         </div>
@@ -81,5 +71,7 @@ const Hero = () => {
 };
 
 export default Hero;
+
+
 
 
