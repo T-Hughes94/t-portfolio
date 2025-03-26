@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "./ThemeContext";
+
 import jsLogo from "/src/assets/js-logo.png";
 import pythonLogo from "/src/assets/python-logo.png";
 import reactLogo from "/src/assets/react-logo.png";
@@ -9,6 +10,7 @@ import cssLogo from "/src/assets/css-logo.png";
 import sqlaLogo from "/src/assets/sqla-logo.png";
 import tlwndLogo from "/src/assets/tlwnd-logo.png";
 import flaskLogo from "/src/assets/flask-logo.png";
+import nextLogo from "/src/assets/nexLogo.jpeg";
 
 const skills = [
   { name: "JavaScript", logo: jsLogo, link: "https://www.javascript.com" },
@@ -20,6 +22,7 @@ const skills = [
   { name: "SQLAlchemy", logo: sqlaLogo, link: "https://www.sqlalchemy.org/" },
   { name: "Tailwind CSS", logo: tlwndLogo, link: "https://tailwindcss.com/" },
   { name: "Flask", logo: flaskLogo, link: "https://flask.palletsprojects.com/en/3.0.x/" },
+  { name: "Next.js", logo: nextLogo, link: "https://nextjs.org/"}
 ];
 
 const TechnicalSkills = () => {
@@ -34,9 +37,7 @@ const TechnicalSkills = () => {
           : "bg-[url('/leaves.jpg')] bg-cover bg-fixed bg-center"
       }`}
     >
-      <div
-        className="max-w-6xl mx-auto rounded-xl px-8 py-12 backdrop-blur-lg bg-white/80 dark:bg-gray-900/80 shadow-2xl transition-all duration-500"
-      >
+      <div className="max-w-6xl mx-auto rounded-xl px-8 py-12 backdrop-blur-lg bg-white/80 dark:bg-gray-900/80 shadow-2xl transition-all duration-500">
         <h2 className="text-4xl font-extrabold text-center text-gray-900 dark:text-white">
           Technical Skills
         </h2>
@@ -46,26 +47,27 @@ const TechnicalSkills = () => {
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 mt-12">
           {skills.map((skill, index) => (
-            <div
+            <a
               key={index}
-              className="flex flex-col items-center p-4 rounded-xl shadow-md transition-all duration-300 
-              hover:scale-105 hover:shadow-lg bg-white dark:bg-gray-800"
+              href={skill.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative w-full h-40 sm:h-48 rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105"
             >
-              <img src={skill.logo} alt={skill.name} className="w-16 h-16 mb-4" />
-              <a
-                href={skill.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`px-4 py-2 mt-2 rounded-lg font-semibold transition-all duration-300 
-                  text-white dark:text-gray-900 ${
-                    darkMode
-                      ? "bg-blue-400 hover:bg-blue-500"
-                      : "bg-green-600 hover:bg-green-700"
-                  }`}
-              >
-                Learn {skill.name}
-              </a>
-            </div>
+              {/* Full Background Logo */}
+              <img
+                src={skill.logo}
+                alt={skill.name}
+                className="absolute inset-0 w-full h-full object-contain p-6 bg-white dark:bg-gray-900"
+              />
+
+              {/* Hover Overlay with Label */}
+              <div className="absolute inset-0 bg-black/70 dark:bg-white/20 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                <span className="text-white dark:text-white text-xl font-bold">
+                  {skill.name}
+                </span>
+              </div>
+            </a>
           ))}
         </div>
       </div>
@@ -74,4 +76,5 @@ const TechnicalSkills = () => {
 };
 
 export default TechnicalSkills;
+
 

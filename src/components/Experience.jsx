@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
-import { ThemeContext } from "./ThemeContext"; // Import Theme Context
+import { ThemeContext } from "./ThemeContext";
 import ExperienceItem from "./ExperienceItem";
 
-// Experience Data
 const data = [
   {
     year: "2024",
@@ -34,30 +33,35 @@ const Experience = () => {
   const { darkMode } = useContext(ThemeContext);
 
   return (
-    <div
+    <section
       id="experience"
-      className={`max-w-[1040px] mx-auto md:pl-20 p-6 py-16 rounded-lg shadow-lg transition-all duration-500 ${
-        darkMode ? "bg-gray-900 text-white" : "bg-green-100 text-gray-900"
+      className={`relative w-full py-24 px-4 sm:px-8 transition-all duration-500 ${
+        darkMode
+          ? "bg-[url('/stars.jpg')] bg-cover bg-fixed bg-center"
+          : "bg-[url('/leaves.jpg')] bg-cover bg-fixed bg-center"
       }`}
     >
-      <h1 className="text-4xl font-extrabold text-center tracking-wide drop-shadow-lg">
-        Experience
-      </h1>
+      <div className="max-w-6xl mx-auto rounded-xl px-8 py-12 backdrop-blur-lg bg-white/80 dark:bg-gray-900/80 shadow-2xl transition-all duration-500">
+        <h2 className="text-4xl font-extrabold text-center text-gray-900 dark:text-white drop-shadow-md">
+          Experience
+        </h2>
 
-      <div className="mt-8">
-        {data.map((item, idx) => (
-          <ExperienceItem
-            key={idx}
-            year={item.year}
-            title={item.title}
-            company={item.company}
-            duration={item.duration}
-            details={item.details}
-          />
-        ))}
+        <div className="mt-12 space-y-10">
+          {data.map((item, idx) => (
+            <ExperienceItem
+              key={idx}
+              year={item.year}
+              title={item.title}
+              company={item.company}
+              duration={item.duration}
+              details={item.details}
+            />
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
 export default Experience;
+

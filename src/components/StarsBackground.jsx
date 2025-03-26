@@ -19,11 +19,31 @@ const StarsBackground = () => {
             value: "transparent"
           }
         },
+        particles: {
+          number: {
+            value: 75,
+            density: {
+              enable: true,
+              area: 800
+            }
+          },
+          move: {
+            enable: true,
+            speed: 0.2
+          },
+          size: {
+            value: { min: 0.5, max: 1.5 }
+          },
+          opacity: {
+            value: 0.8
+          }
+        },
         fullScreen: {
           enable: true,
           zIndex: -1
         }
       }}
+      
     />
   );
 };
